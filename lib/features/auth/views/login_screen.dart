@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ripple/features/auth/views/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -127,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 55,
                   child: ElevatedButton(
                     onPressed: () {
-                      // TODO: Login Logic
+
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF002366),
@@ -187,14 +188,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     TextButton(
                       onPressed: () {
-                        // TODO: Navigate to Signup Screen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignupScreen(),
+                          ),
+                        );
                       },
-                      child: const Text(
-                        "Sign Up",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      child: const Text("Sign Up"),
                     ),
                   ],
                 ),

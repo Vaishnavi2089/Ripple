@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ripple/features//auth/login_screen.dart';
+import 'package:ripple/features/auth/views/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
