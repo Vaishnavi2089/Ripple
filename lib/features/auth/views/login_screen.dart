@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ripple/features/auth/views/signup_screen.dart';
+import 'package:ripple/features/auth/views/forget_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -110,7 +111,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () {},
+
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) =>
+                            const ForgetPasswordScreen(),
+                          ),
+                        );
+                      },
+
                     child: const Text(
                       "Forgot Password?",
                       style: TextStyle(
