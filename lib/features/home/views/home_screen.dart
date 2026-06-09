@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ripple/features/rooms/views/create_room_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -222,7 +223,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisSpacing: 15,
                       mainAxisSpacing: 15,
                       childAspectRatio: 1.2,
-                      children: const [
+                      children:  [
                         ActionCard(
                           icon: Icons.map,
                           title: "Open Map",
@@ -234,6 +235,15 @@ class HomeScreen extends StatelessWidget {
                         ActionCard(
                           icon: Icons.add_location_alt,
                           title: "Create Room",
+                          onTap : () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                const CreateRoomScreen(),
+                              ),
+                            );
+                          },
                         ),
                         ActionCard(
                           icon: Icons.psychology,
@@ -415,35 +425,41 @@ class TrendingCard extends StatelessWidget {
 class ActionCard extends StatelessWidget {
   final IconData icon;
   final String title;
+  final VoidCallback? onTap;
 
   const ActionCard({
     super.key,
     required this.icon,
     required this.title,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        mainAxisAlignment:
-        MainAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            size: 35,
-            color: Color(0xFF002366),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            title,
-            textAlign: TextAlign.center,
-          ),
-        ],
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(20),
+      child: Card(
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          mainAxisAlignment:
+          MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              size: 35,
+              color: const Color(0xFF002366),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
     );
   }
