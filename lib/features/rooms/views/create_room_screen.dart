@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ripple/features/rooms/views/avatar_selection_screen.dart';
 class CreateRoomScreen extends StatefulWidget {
   const CreateRoomScreen({super.key});
 
@@ -77,7 +78,7 @@ class _CreateRoomScreenState
             Slider(
               value: members,
               min: 2,
-              max: 20,
+              max: 12,
               divisions: 18,
               label: members.round().toString(),
               onChanged: (value) {
@@ -148,8 +149,16 @@ class _CreateRoomScreenState
               height: 60,
               child: ElevatedButton(
                 onPressed: () {
-
-                  // Navigate to Avatar Screen
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(25),
+                      ),
+                    ),
+                    builder: (_) => const AvatarSelectionSheet(),
+                  );
                 },
 
                 style: ElevatedButton.styleFrom(
