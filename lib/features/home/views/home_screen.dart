@@ -3,10 +3,32 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  String getGreeting() {
+    final hour = DateTime.now().hour;
+
+    if (hour < 12) {
+      return "Good Morning ☀️";
+    } else if (hour < 17) {
+      return "Good Afternoon 🌤️";
+    } else {
+      return "Good Evening 🌙";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F8F8),
+      backgroundColor: const Color(0xFFF5F7FB),
+
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: const Color(0xFF002366),
+        onPressed: () {},
+        icon: const Icon(Icons.psychology, color: Colors.white),
+        label: const Text(
+          "AI Meet",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
 
       body: SingleChildScrollView(
         child: Column(
@@ -15,12 +37,7 @@ class HomeScreen extends StatelessWidget {
             // HEADER
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.only(
-                top: 60,
-                left: 24,
-                right: 24,
-                bottom: 30,
-              ),
+              padding: const EdgeInsets.fromLTRB(24, 60, 24, 30),
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
@@ -35,7 +52,6 @@ class HomeScreen extends StatelessWidget {
                   bottomRight: Radius.circular(35),
                 ),
               ),
-
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -45,12 +61,22 @@ class HomeScreen extends StatelessWidget {
                     MainAxisAlignment.spaceBetween,
                     children: [
 
-                      const Column(
+                      Column(
                         crossAxisAlignment:
                         CrossAxisAlignment.start,
                         children: [
 
                           Text(
+                            getGreeting(),
+                            style: const TextStyle(
+                              color: Colors.white70,
+                              fontSize: 16,
+                            ),
+                          ),
+
+                          const SizedBox(height: 6),
+
+                          const Text(
                             "Welcome Back 👋",
                             style: TextStyle(
                               color: Colors.white,
@@ -58,33 +84,22 @@ class HomeScreen extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-
-                          SizedBox(height: 8),
-
-                          Text(
-                            "Ready to explore today?",
-                            style: TextStyle(
-                              color: Colors.white70,
-                              fontSize: 15,
-                            ),
-                          ),
                         ],
                       ),
 
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 28,
-                        backgroundColor:
-                        Colors.white24,
+                        backgroundColor: Colors.white24,
                         child: Icon(
                           Icons.person,
-                          size: 32,
                           color: Colors.white,
+                          size: 30,
                         ),
                       ),
                     ],
                   ),
 
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 25),
 
                   Container(
                     decoration: BoxDecoration(
@@ -94,15 +109,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                     child: const TextField(
                       decoration: InputDecoration(
-                        hintText:
-                        "Search destination...",
-                        prefixIcon:
-                        Icon(Icons.search),
+                        hintText: "Search destination...",
+                        prefixIcon: Icon(Icons.search),
                         border: InputBorder.none,
-                        contentPadding:
-                        EdgeInsets.symmetric(
-                          vertical: 16,
-                        ),
                       ),
                     ),
                   ),
@@ -110,15 +119,14 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 25),
-
             Padding(
-              padding:
-              const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment:
                 CrossAxisAlignment.start,
                 children: [
+
+                  const SizedBox(height: 10),
 
                   const Text(
                     "Quick Actions",
@@ -163,35 +171,26 @@ class HomeScreen extends StatelessWidget {
 
                   const SizedBox(height: 25),
 
-                  const Text(
-                    "Featured",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-
-                  const SizedBox(height: 15),
-
+                  // AI BANNER
                   Container(
                     width: double.infinity,
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
                         colors: [
-                          Color(0xFF002366),
-                          Color(0xFF1E4FA8),
+                          Color(0xFF6A11CB),
+                          Color(0xFF2575FC),
                         ],
                       ),
                       borderRadius:
                       BorderRadius.circular(20),
                     ),
-                    child: const Column(
+                    child: Column(
                       crossAxisAlignment:
                       CrossAxisAlignment.start,
                       children: [
 
-                        Row(
+                        const Row(
                           children: [
 
                             Icon(
@@ -213,13 +212,22 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
 
-                        SizedBox(height: 10),
+                        const SizedBox(height: 12),
 
-                        Text(
-                          "Find the most fair and convenient location for everyone in your group.",
+                        const Text(
+                          "Find the fairest meeting location for everyone in your group in seconds.",
                           style: TextStyle(
                             color: Colors.white70,
-                            height: 1.4,
+                            height: 1.5,
+                          ),
+                        ),
+
+                        const SizedBox(height: 15),
+
+                        ElevatedButton(
+                          onPressed: () {},
+                          child: const Text(
+                            "Try Now",
                           ),
                         ),
                       ],
@@ -238,22 +246,22 @@ class HomeScreen extends StatelessWidget {
 
                   const SizedBox(height: 15),
 
-                  _featureTile(
+                  featureTile(
                     Icons.location_searching,
                     "Midpoint Finder",
                   ),
 
-                  _featureTile(
+                  featureTile(
                     Icons.groups,
                     "Crowd Meetups",
                   ),
 
-                  _featureTile(
+                  featureTile(
                     Icons.route,
                     "Road Width Analysis",
                   ),
 
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 80),
                 ],
               ),
             ),
@@ -265,6 +273,7 @@ class HomeScreen extends StatelessWidget {
         currentIndex: 0,
         selectedItemColor:
         const Color(0xFF002366),
+        unselectedItemColor: Colors.grey,
 
         items: const [
 
@@ -291,39 +300,45 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+}
 
-  static Widget _featureTile(
-      IconData icon,
-      String title,
-      ) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius:
-        BorderRadius.circular(15),
-      ),
-      child: Row(
-        children: [
+Widget featureTile(
+    IconData icon,
+    String title,
+    ) {
+  return Container(
+    margin: const EdgeInsets.only(bottom: 12),
+    padding: const EdgeInsets.all(16),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius:
+      BorderRadius.circular(15),
+      boxShadow: const [
+        BoxShadow(
+          color: Colors.black12,
+          blurRadius: 8,
+        ),
+      ],
+    ),
+    child: Row(
+      children: [
 
-          Icon(
-            icon,
-            color: const Color(0xFF002366),
+        Icon(
+          icon,
+          color: const Color(0xFF002366),
+        ),
+
+        const SizedBox(width: 15),
+
+        Text(
+          title,
+          style: const TextStyle(
+            fontWeight: FontWeight.w600,
           ),
-
-          const SizedBox(width: 15),
-
-          Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+        ),
+      ],
+    ),
+  );
 }
 
 class FeatureCard extends StatelessWidget {
@@ -350,7 +365,6 @@ class FeatureCard extends StatelessWidget {
           ),
         ],
       ),
-
       child: Column(
         mainAxisAlignment:
         MainAxisAlignment.center,
@@ -358,11 +372,11 @@ class FeatureCard extends StatelessWidget {
 
           Icon(
             icon,
-            size: 42,
+            size: 40,
             color: const Color(0xFF002366),
           ),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: 10),
 
           Text(
             title,
