@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ripple/features/splash/splash_screen.dart';
 
 
+
 void main() {
   runApp(const MyApp());
 }

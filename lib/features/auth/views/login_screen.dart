@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ripple/features/auth/views/signup_screen.dart';
 import 'package:ripple/features/auth/views/forget_password_screen.dart';
+import 'package:ripple/features/home/views/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -139,7 +140,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 55,
                   child: ElevatedButton(
                     onPressed: () {
-
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomeScreen(),
+                        ),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF002366),
