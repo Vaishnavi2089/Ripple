@@ -38,50 +38,7 @@ class RoomLobbyScreen extends StatelessWidget {
         child: Column(
           children: [
 
-            // // HEADER
-            // Container(
-            //   width: double.infinity,
-            //   padding: const EdgeInsets.fromLTRB(
-            //     20,
-            //     60,
-            //     20,
-            //     30,
-            //   ),
-            //   decoration: const BoxDecoration(
-            //     gradient: LinearGradient(
-            //       colors: [
-            //         Color(0xFF002366),
-            //         Color(0xFF1E4FA8),
-            //       ],
-            //     ),
-            //     borderRadius: BorderRadius.only(
-            //       bottomLeft: Radius.circular(35),
-            //       bottomRight: Radius.circular(35),
-            //     ),
-            //   ),
-            //   child: const Column(
-            //     children: [
-            //
-            //       Text(
-            //         "Room Lobby",
-            //         style: TextStyle(
-            //           color: Colors.white,
-            //           fontSize: 30,
-            //           fontWeight: FontWeight.bold,
-            //         ),
-            //       ),
-            //
-            //       SizedBox(height: 10),
-            //
-            //       Text(
-            //         "Waiting for members to join",
-            //         style: TextStyle(
-            //           color: Colors.white70,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
+
             Container(
               width: double.infinity,
               padding: const EdgeInsets.fromLTRB(20, 60, 20, 30),
