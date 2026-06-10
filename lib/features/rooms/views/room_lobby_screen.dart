@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:ripple/features/map/views/live_group_map_screen.dart';
 class RoomLobbyScreen extends StatelessWidget {
   const RoomLobbyScreen({super.key});
 
@@ -487,7 +487,15 @@ class RoomLobbyScreen extends StatelessWidget {
                     width: double.infinity,
                     height: 60,
                     child: ElevatedButton.icon(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) =>
+                            const LiveGroupMapScreen(),
+                          ),
+                        );
+                      },
                       icon: const Icon(
                         Icons.radar,
                       ),
