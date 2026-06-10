@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ripple/features/rooms/views/room_lobby_screen.dart';
 
 class AvatarSelectionSheet extends StatefulWidget {
   const AvatarSelectionSheet({super.key});
@@ -129,7 +130,13 @@ class _AvatarSelectionSheetState
                     ? null
                     : () {
 
-                  // Navigate Room Lobby
+                  //Navigate Room Lobby
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const RoomLobbyScreen(),
+                    ),
+                  );
 
                 },
                 child: const Text(

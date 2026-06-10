@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:ripple/features/auth/views/login_screen.dart';
+import 'package:ripple/features/auth/views/login_screen.dart';
 class SignupScreen extends StatefulWidget{
     const SignupScreen({super.key});
     @override
