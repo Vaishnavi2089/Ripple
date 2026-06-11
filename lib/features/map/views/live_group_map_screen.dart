@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ripple/features/ai/views/ai_suggestion_screen.dart';
+import 'package:ripple/features/voice/views/voice_assistant_screen.dart';
 class LiveGroupMapScreen extends StatelessWidget {
 const LiveGroupMapScreen({super.key});
 
@@ -209,7 +210,18 @@ Widget build(BuildContext context) {
         child: FloatingActionButton(
          heroTag: "voice",
          backgroundColor: Colors.white,
-         onPressed: () {},
+         onPressed: () {
+
+           showModalBottomSheet(
+             context: context,
+             isScrollControlled: true,
+             backgroundColor: Colors.transparent,
+             builder: (_) => const FractionallySizedBox(
+               heightFactor: 0.72,
+               child: RippleAssistantScreen(),
+             ),
+           );
+         },
         child: const Icon(
         Icons.mic,
         color: Color(0xFF002366),
