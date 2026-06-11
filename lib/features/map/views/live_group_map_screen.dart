@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:ripple/features/ai/views/ai_suggestion_screen.dart';
 class LiveGroupMapScreen extends StatelessWidget {
 const LiveGroupMapScreen({super.key});
 
@@ -418,10 +418,15 @@ Positioned(
     ElevatedButton.icon(
       onPressed: () {
 
-        // TODO:
-        // Navigate to
-        // Route Screen
-
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          builder: (_) => const FractionallySizedBox(
+            heightFactor: 0.72,
+            child: AiSuggestionsSheet(),
+          ),
+        );
       },
 
       icon: const Icon(
