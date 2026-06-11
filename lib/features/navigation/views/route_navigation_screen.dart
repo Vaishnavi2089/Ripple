@@ -17,10 +17,10 @@ class NavigationScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        leading: const Icon(
-          Icons.arrow_back,
-          color: Colors.black,
-        ),
+        // leading: const Icon(
+        //   Icons.arrow_back,
+        //   color: Colors.black,
+        // ),
       ),
       body: SafeArea(
         child: Column(

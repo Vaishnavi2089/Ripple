@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ripple/features/ai/views/ai_suggestion_screen.dart';
 import 'package:ripple/features/voice/views/voice_assistant_screen.dart';
 import 'package:ripple/features/navigation/views/route_navigation_screen.dart';
+import 'package:ripple/features/emergency/views/emergency_alert_screen.dart';
 class LiveGroupMapScreen extends StatelessWidget {
 const LiveGroupMapScreen({super.key});
 
@@ -175,7 +176,7 @@ Widget build(BuildContext context) {
     padding:
    const EdgeInsets.all(12),
     decoration: BoxDecoration(
-     color: Colors.red,
+     color: Colors.blue,
      borderRadius:
      BorderRadius.circular(20),
      boxShadow: const [
@@ -271,6 +272,27 @@ Positioned(
 ),
 ),
 ),
+//Adding emergency button
+         Positioned(
+           right: 20,
+           top: 350,
+           child: FloatingActionButton(
+             heroTag: "emergency",
+             backgroundColor: Colors.redAccent,
+             onPressed: () {
+               Navigator.push(
+                 context,
+                 MaterialPageRoute(
+                   builder: (_) => const EmergencyAlertScreen(),
+                 ),
+               );
+             },
+             child: const Icon(
+               Icons.warning_rounded,
+               color: Colors.white,
+             ),
+           ),
+         ),
 
 // BOTTOM PANEL
     Align(
