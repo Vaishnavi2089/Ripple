@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ripple/features/ai/views/ai_suggestion_screen.dart';
 import 'package:ripple/features/voice/views/voice_assistant_screen.dart';
+import 'package:ripple/features/navigation/views/route_navigation_screen.dart';
 class LiveGroupMapScreen extends StatelessWidget {
 const LiveGroupMapScreen({super.key});
 
@@ -236,7 +237,19 @@ Widget build(BuildContext context) {
      child: FloatingActionButton(
       heroTag: "ai",
       backgroundColor: Colors.white,
-       onPressed: () {},
+       onPressed: () {
+         showModalBottomSheet(
+           context: context,
+           isScrollControlled: true,
+           backgroundColor: Colors.transparent,
+           builder: (_) => const FractionallySizedBox(
+             heightFactor: 0.72,
+             child: AiSuggestionsSheet(),
+           ),
+         );
+
+
+       },
       child: const Icon(
        Icons.auto_awesome,
      color: Colors.deepPurple,
@@ -436,7 +449,7 @@ Positioned(
           backgroundColor: Colors.transparent,
           builder: (_) => const FractionallySizedBox(
             heightFactor: 0.72,
-            child: AiSuggestionsSheet(),
+            child: NavigationScreen(),
           ),
         );
       },
