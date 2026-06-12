@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ripple/features/rooms/views/create_room_screen.dart';
+import 'package:ripple/features/rooms/views/join_room_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -231,6 +232,14 @@ class HomeScreen extends StatelessWidget {
                         ActionCard(
                           icon: Icons.group,
                           title: "Join Room",
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const JoinRoomScreen(),
+                              ),
+                            );
+                          },
                         ),
                         ActionCard(
                           icon: Icons.add_location_alt,
