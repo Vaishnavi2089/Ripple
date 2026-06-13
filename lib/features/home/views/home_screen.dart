@@ -335,6 +335,14 @@ class HomeScreen extends StatelessWidget {
 
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
+
+        backgroundColor: Colors.white,
+
+        selectedItemColor: Color(0xFF002366),
+        unselectedItemColor: Colors.grey,
+
+        type: BottomNavigationBarType.fixed,
+
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -353,6 +361,7 @@ class HomeScreen extends StatelessWidget {
             label: "Profile",
           ),
         ],
+
       ),
     );
   }
