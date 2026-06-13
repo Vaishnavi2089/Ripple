@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ripple/features/rooms/views/create_room_screen.dart';
 import 'package:ripple/features/rooms/views/join_room_screen.dart';
+import 'package:ripple/features/profile/views/profile_screen.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -335,13 +337,24 @@ class HomeScreen extends StatelessWidget {
 
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
-
         backgroundColor: Colors.white,
 
         selectedItemColor: Color(0xFF002366),
         unselectedItemColor: Colors.grey,
 
         type: BottomNavigationBarType.fixed,
+
+
+        onTap: (index) {
+          if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const ProfileScreen(),
+              ),
+            );
+          }
+        },
 
         items: const [
           BottomNavigationBarItem(
@@ -361,7 +374,6 @@ class HomeScreen extends StatelessWidget {
             label: "Profile",
           ),
         ],
-
       ),
     );
   }
