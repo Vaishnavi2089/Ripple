@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:ripple/features/notification/views/notification_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

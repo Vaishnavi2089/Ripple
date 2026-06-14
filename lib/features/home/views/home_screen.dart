@@ -68,12 +68,23 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
 
-                        const CircleAvatar(
-                          radius: 22,
-                          backgroundColor: Colors.white24,
-                          child: Icon(
-                            Icons.person,
-                            color: Colors.white,
+                        InkWell(
+                          borderRadius: BorderRadius.circular(25),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const ProfileScreen(),
+                              ),
+                            );
+                          },
+                          child: const CircleAvatar(
+                            radius: 22,
+                            backgroundColor: Colors.white24,
+                            child: Icon(
+                              Icons.person,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ],
