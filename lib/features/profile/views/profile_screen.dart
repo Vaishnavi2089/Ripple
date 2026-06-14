@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
@@ -7,233 +8,341 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7FB),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
 
-            /// HEADER
-            Stack(
-              clipBehavior: Clip.none,
-              alignment: Alignment.center,
-              children: [
-
-                Container(
-                  height: 280,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xFF002366),
-                        Color(0xFF002366),
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    borderRadius: BorderRadius.vertical(
-                      bottom: Radius.circular(40),
-                    ),
-                  ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-
-                      SizedBox(height: 40),
-
-
-
-
-                      Text(
-                        "Vaishnavi Gupta",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      SizedBox(height: 8),
-
-                      Text(
-                        "Explorer • Ripple Plus",
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 16,
-                        ),
-                      ),
-
-                      SizedBox(height: 12),
-
-                      Text(
-                        "📍 42 Meetups Completed",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                        ),
-                      ),
+              /// HEADER
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [
+                      Color(0xFF002366),
+                      Color(0xFF0047AB),
                     ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
                   ),
+                  borderRadius: BorderRadius.circular(28),
                 ),
+                child: Column(
+                  children: [
 
-                Positioned(
-                  bottom: -40,
-                  child: Container(
-                    height: 90,
-                    width: 90,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 4,
-                      ),
-                    ),
-                    child: const Center(
+                    const CircleAvatar(
+                      radius: 42,
+                      backgroundColor: Colors.white,
                       child: Text(
                         "👩🏻‍💻",
-                        style: TextStyle(fontSize: 42),
+                        style: TextStyle(fontSize: 38),
                       ),
                     ),
-                  ),
+
+                    const SizedBox(height: 16),
+
+                    const Text(
+                      "👋 Welcome Back",
+                      style: TextStyle(
+                        color: Colors.white70,
+                        fontSize: 16,
+                      ),
+                    ),
+
+                    const SizedBox(height: 8),
+
+                    const Text(
+                      "Vaishnavi Gupta",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+
+                    const SizedBox(height: 8),
+
+                    const Text(
+                      "Explorer Level 5",
+                      style: TextStyle(
+                        color: Colors.white70,
+                        fontSize: 16,
+                      ),
+                    ),
+
+                    const SizedBox(height: 20),
+
+                    Column(
+                      crossAxisAlignment:
+                      CrossAxisAlignment.start,
+                      children: [
+
+                        ClipRRect(
+                          borderRadius:
+                          BorderRadius.circular(10),
+                          child: LinearProgressIndicator(
+                            value: 0.8,
+                            minHeight: 10,
+                            backgroundColor:
+                            Colors.white24,
+                            valueColor:
+                            const AlwaysStoppedAnimation(
+                              Colors.white,
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 8),
+
+                        const Text(
+                          "80% • Next Level: Pathfinder",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-              ],
-            ),
-
-            const SizedBox(height: 60),
-
-            /// ACTIVITY CARD
-            Container(
-              margin:
-              const EdgeInsets.symmetric(horizontal: 20),
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(24),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(.05),
-                    blurRadius: 15,
-                  ),
-                ],
               ),
-              child: Column(
-                children: [
 
-                  const Text(
-                    "Activity",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+              const SizedBox(height: 24),
+
+              /// JOURNEY CARD
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius:
+                  BorderRadius.circular(24),
+                  boxShadow: [
+                    BoxShadow(
+                      color:
+                      Colors.black.withOpacity(.05),
+                      blurRadius: 12,
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment:
+                  CrossAxisAlignment.start,
+                  children: [
+
+                    const Text(
+                      "📊 Your Ripple Journey",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight:
+                        FontWeight.bold,
+                      ),
+                    ),
+
+                    const SizedBox(height: 20),
+
+                    journeyRow(
+                      "42",
+                      "Meetups",
+                    ),
+
+                    journeyRow(
+                      "28",
+                      "Rooms Joined",
+                    ),
+
+                    journeyRow(
+                      "15",
+                      "Friends",
+                    ),
+
+                    journeyRow(
+                      "126 km",
+                      "Travelled",
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 24),
+
+              /// BADGES
+              const Text(
+                "🏅 Badges",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight:
+                  FontWeight.bold,
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
+              Row(
+                children: const [
+
+                  Expanded(
+                    child: BadgeCard(
+                      emoji: "⭐",
+                      title: "Elite",
                     ),
                   ),
 
-                  const SizedBox(height: 20),
+                  SizedBox(width: 12),
 
-                  Row(
-                    mainAxisAlignment:
-                    MainAxisAlignment.spaceAround,
-                    children: const [
-
-                      StatTile(
-                        value: "12",
-                        label: "Rooms",
-                      ),
-
-                      StatTile(
-                        value: "28",
-                        label: "Joined",
-                      ),
-
-                    ],
-                  ),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 24),
-
-            /// ACHIEVEMENTS
-            Padding(
-              padding:
-              const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment:
-                CrossAxisAlignment.start,
-                children: [
-
-                  achievementCard(
-                    "⭐ Explorer",
-                    "Reached 10 successful meetups",
-                  ),
-
-                  achievementCard(
-                    "🔥 Social Traveler",
-                    "Joined rooms across 5 cities",
-                  ),
-
-                  achievementCard(
-                    "🎯 Midpoint Master",
-                    "Created 20 optimized routes",
-                  ),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 24),
-
-            /// QUICK ACTIONS
-            Padding(
-              padding:
-              const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment:
-                CrossAxisAlignment.start,
-                children: [
-
-                  const Text(
-                    "Quick Actions",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: BadgeCard(
+                      emoji: "🔥",
+                      title: "Social",
                     ),
                   ),
 
-                  const SizedBox(height: 16),
+                  SizedBox(width: 12),
 
-                  actionTile(
-                    Icons.history,
-                    "Route History",
-                  ),
-
-                  actionTile(
-                    Icons.star,
-                    "Saved Places",
-                  ),
-
-                  actionTile(
-                    Icons.notifications,
-                    "Notifications",
-                  ),
-
-                  actionTile(
-                    Icons.settings,
-                    "Settings",
-                  ),
-
-                  actionTile(
-                    Icons.help_outline,
-                    "Help & Support",
+                  Expanded(
+                    child: BadgeCard(
+                      emoji: "🎯",
+                      title: "Master",
+                    ),
                   ),
                 ],
               ),
-            ),
 
-            const SizedBox(height: 30),
+              const SizedBox(height: 24),
 
-            /// LOGOUT
-            Padding(
-              padding:
-              const EdgeInsets.symmetric(horizontal: 20),
-              child: SizedBox(
+              /// QUICK ACCESS
+              const Text(
+                "⚡ Quick Access",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight:
+                  FontWeight.bold,
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
+              quickTile(
+                Icons.history,
+                "Route History",
+                    () {},
+              ),
+
+              quickTile(
+                Icons.place,
+                "Favorite Places",
+                    () {},
+              ),
+
+              quickTile(
+                Icons.people,
+                "Friends",
+                    () {},
+              ),
+
+              quickTile(
+                Icons.notifications,
+                "Notifications",
+                    () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const NotificationsScreen(),
+                    ),
+                  );
+                },
+              ),
+              quickTile(
+                Icons.settings,
+                "Settings",
+                    () {},
+              ),
+
+              quickTile(
+                Icons.help_outline,
+                "Help & Support",
+                    () {},
+              ),
+
+              const SizedBox(height: 24),
+
+              /// MONTHLY STATS
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius:
+                  BorderRadius.circular(24),
+                  boxShadow: [
+                    BoxShadow(
+                      color:
+                      Colors.black.withOpacity(.05),
+                      blurRadius: 12,
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment:
+                  CrossAxisAlignment.start,
+                  children: [
+
+                    const Text(
+                      "📈 This Month",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight:
+                        FontWeight.bold,
+                      ),
+                    ),
+
+                    const SizedBox(height: 20),
+
+                    const Text(
+                      "Meetups Completed",
+                    ),
+
+                    const SizedBox(height: 8),
+
+                    LinearProgressIndicator(
+                      value: 0.9,
+                      minHeight: 10,
+                      borderRadius:
+                      BorderRadius.circular(10),
+                    ),
+
+                    const SizedBox(height: 8),
+
+                    const Text("9 / 10"),
+
+                    const SizedBox(height: 20),
+
+                    const Text(
+                      "Distance Travelled",
+                    ),
+
+                    const SizedBox(height: 8),
+
+                    LinearProgressIndicator(
+                      value: 0.64,
+                      minHeight: 10,
+                      borderRadius:
+                      BorderRadius.circular(10),
+                    ),
+
+                    const SizedBox(height: 8),
+
+                    const Text("64 km"),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 30),
+
+              /// LOGOUT
+              SizedBox(
                 width: double.infinity,
                 height: 58,
                 child: OutlinedButton.icon(
@@ -246,73 +355,57 @@ class ProfileScreen extends StatelessWidget {
                     "Logout",
                     style: TextStyle(
                       color: Colors.red,
-                      fontWeight: FontWeight.bold,
+                      fontWeight:
+                      FontWeight.bold,
                     ),
                   ),
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(
                       color: Colors.red,
                     ),
-                    shape: RoundedRectangleBorder(
+                    shape:
+                    RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.circular(18),
+                      BorderRadius.circular(
+                        18,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
 
-            const SizedBox(height: 30),
-          ],
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  static Widget achievementCard(
-      String title,
-      String subtitle,
-      ) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(.04),
-            blurRadius: 10,
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment:
-        CrossAxisAlignment.start,
+  static Widget journeyRow(String value,
+      String title,) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 14),
+      child: Row(
         children: [
           Text(
-            title,
+            value,
             style: const TextStyle(
-              fontWeight: FontWeight.bold,
+              fontWeight:
+              FontWeight.bold,
               fontSize: 16,
             ),
           ),
-          const SizedBox(height: 6),
-          Text(
-            subtitle,
-            style: const TextStyle(
-              color: Colors.grey,
-            ),
-          ),
+          const SizedBox(width: 12),
+          Text(title),
         ],
       ),
     );
   }
 
-  static Widget actionTile(
-      IconData icon,
+  static Widget quickTile(IconData icon,
       String title,
-      ) {
+      VoidCallback onTap,) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
@@ -326,6 +419,7 @@ class ProfileScreen extends StatelessWidget {
         ],
       ),
       child: ListTile(
+        onTap: onTap,
         leading: Icon(
           icon,
           color: const Color(0xFF002366),
@@ -339,37 +433,49 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
+class BadgeCard extends StatelessWidget {
+  final String emoji;
+  final String title;
 
-class StatTile extends StatelessWidget {
-  final String value;
-  final String label;
-
-  const StatTile({
+  const BadgeCard({
     super.key,
-    required this.value,
-    required this.label,
+    required this.emoji,
+    required this.title,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          value,
-          style: const TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF002366),
+    return Container(
+      height: 110,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 12,
           ),
-        ),
-        const SizedBox(height: 6),
-        Text(
-          label,
-          style: const TextStyle(
-            color: Colors.grey,
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            emoji,
+            style: const TextStyle(
+              fontSize: 30,
+            ),
           ),
-        ),
-      ],
+          const SizedBox(height: 8),
+          Text(
+            title,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
+

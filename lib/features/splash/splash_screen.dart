@@ -120,7 +120,7 @@ class _SplashScreenState extends State<SplashScreen>
                 scale: _logoScale,
                 child: Image.asset(
                   "assets/images/logo.png",
-                  width: 250,
+                  width: 150,
                 ),
               ),
             ),
@@ -132,7 +132,7 @@ class _SplashScreenState extends State<SplashScreen>
               child: const Text(
                 'Ripple',
                 style: TextStyle(
-                  fontSize: 52,
+                  fontSize: 40,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF002366),
                 ),
