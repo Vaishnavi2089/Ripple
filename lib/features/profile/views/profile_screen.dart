@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ripple/features/notification/views/notification_screen.dart';
+import 'package:ripple/features/friends/views/friends_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -239,7 +240,14 @@ class ProfileScreen extends StatelessWidget {
               quickTile(
                 Icons.people,
                 "Friends",
-                    () {},
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const FriendsScreen(),
+                        ),
+                      );
+                    },
               ),
 
               quickTile(

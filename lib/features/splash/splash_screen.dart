@@ -127,17 +127,17 @@ class _SplashScreenState extends State<SplashScreen>
 
             const SizedBox(height: 20),
 
-            SlideTransition(
-              position: _slideAnimation,
-              child: const Text(
-                'Ripple',
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF002366),
-                ),
-              ),
-            ),
+            // SlideTransition(
+            //   position: _slideAnimation,
+            //   child: const Text(
+            //     'Ripple',
+            //     style: TextStyle(
+            //       fontSize: 40,
+            //       fontWeight: FontWeight.bold,
+            //       color: Color(0xFF002366),
+            //     ),
+            //   ),
+            // ),
 
             const SizedBox(height: 10),
 
